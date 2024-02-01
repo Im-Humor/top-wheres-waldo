@@ -1,0 +1,45 @@
+html * {
+    box-sizing: border-box;
+    list-style: none;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.app-container {
+    display: grid;
+    grid-template-columns: 200px auto;
+    grid-template-rows: 100px auto;
+    height: 100%;
+}
+
+.app-header {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    background-color: lightgray;
+}
+
+.navbar-list {
+    display: flex;
+}
+
+.app-sidebar {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    background-color: grey;
+}
+
+.app-main {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    background-image: url("./images/wheres_waldo.png");
+    position: relative;
+}
+
+.select-box {
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+}
