@@ -6,18 +6,22 @@ html * {
 html,
 body {
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .app-container {
-    display: grid;
-    grid-template-columns: 200px auto;
-    grid-template-rows: 100px auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.app-playarea {
+    display: flex;
     height: 100%;
 }
 
 .app-header {
-    grid-column: 1 / 3;
-    grid-row: 1 / 2;
     background-color: lightgray;
 }
 
@@ -26,16 +30,14 @@ body {
 }
 
 .app-sidebar {
-    grid-column: 1 / 2;
-    grid-row: 2 / 3;
     background-color: grey;
+    display: block;
+    height: 100%;
+    z-index: 10;
 }
 
 .app-main {
-    grid-column: 2 / 3;
-    grid-row: 2 / 3;
-    background-image: url("./images/wheres_waldo.png");
-    position: relative;
+    position: absolute;
 }
 
 .select-box {
