@@ -1,11 +1,14 @@
 html * {
-    box-sizing: border-box;
+    box-sizing: content-box;
     list-style: none;
+    overflow: hidden;
 }
 
 html,
 body {
     height: 100%;
+    width: 100%;
+    overflow: hidden;
     margin: 0;
     padding: 0;
 }
@@ -23,25 +26,48 @@ body {
 
 .app-header {
     background-color: lightgray;
+    position: sticky;
+    top: 0;
+    left: 0;
 }
 
 .navbar-list {
     display: flex;
 }
 
+.navbar-list-item {
+    margin: 0 1rem
+}
+
 .app-sidebar {
     background-color: grey;
+    width: 20%;
     display: block;
-    height: 100%;
     z-index: 10;
+    position: sticky;
+    top: 0;
+    left: 0;
 }
 
 .app-main {
+    height: 100vh;
+    width: 100vw;
     position: absolute;
+    overflow-x: scroll;
+    overflow-y: scroll;
 }
 
 .select-box {
     height: 100px;
     width: 100px;
     border: 2px solid black;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 10%;
+    width: 10%;
+    background-color: lightcoral;
 }

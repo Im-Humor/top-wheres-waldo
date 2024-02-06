@@ -9,20 +9,15 @@
 		<div class="app-container">
 			<div class="app-header">
 				<ul class="navbar-list">
-					<li class="navbar-list-item">Home</li>
+					<li class="navbar-list-item"><a href="/">Restart</a></li>
 					<li class="navbar-list-item">Name: User</li>
-					<li class="navbar-list-item">Time: 1:23</li>
+					<li class="navbar-list-item" id="timer">Time:</li>
 				</ul>
 			</div>
 			<div class="app-playarea">
 				<div class="app-sidebar">
-					<ul class="character-list">
-						<li class="character-list-item">Person 1</li>
-						<li class="character-list-item">Person 2</li>
-						<li class="character-list-item">Person 3</li>
-						<li class="character-list-item">Person 4</li>
-						<li class="character-list-item">Person 5</li>
-					</ul>
+					<h4>Choose a character</h4>
+					<ul class="character-list"></ul>
 				</div>
 				<div class="app-main" id="app-main">
 					<img
@@ -31,6 +26,10 @@
 						id="app-image"
 					/>
 				</div>
+			</div>
+			<div class="modal">
+				<p>Click Start to begin!</p>
+				<button onclick="setupGame()">Start</button>
 			</div>
 		</div>
 
