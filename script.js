@@ -1,15 +1,4 @@
-const people = {
-	megamind: {
-		posX: 557,
-		posY: 425,
-		found: false,
-	},
-	"the flash": {
-		posX: 1032,
-		posY: 1036,
-		found: false,
-	},
-};
+import { people } from "./test_people.js";
 
 let posX = 0;
 let posY = 0;
@@ -17,7 +6,7 @@ let time = 0;
 let winScore = 0;
 
 const sidebarList = document.querySelector(".character-list");
-for (key in Object.keys(people)) {
+for (let key in Object.keys(people)) {
 	const sidebarListItem = document.createElement("li");
 	sidebarListItem.classList.add("character-list-item");
 	sidebarListItem.setAttribute("id", Object.keys(people)[key]);
@@ -59,13 +48,6 @@ function stopTimer() {
 function clickEvent(event) {
 	const person = event.target.innerText;
 	checkPerson(person);
-}
-
-function removeClickEvent() {
-	const sideBarListItems = document.querySelectorAll(".character-list-item");
-	for (let x = 0; x < sideBarListItems.length; x++) {
-		sideBarListItems[x].removeEventListener("click", clickEvent);
-	}
 }
 
 function showSidebar() {
@@ -155,3 +137,22 @@ function setupGame() {
 		}
 	});
 }
+
+function startModal() {
+	const appContainer = document.querySelector(".app-container");
+
+	const startModal = document.createElement("div");
+	startModal.classList.add("modal");
+	startModal.innerHTML = "<p>Click start to start the game!<p>";
+	const startModalButton = document.createElement("button");
+	startModalButton.textContent = "Start";
+
+	appContainer.appendChild(startModal);
+	startModal.appendChild(startModalButton);
+	startModalButton.addEventListener("click", (event) => {
+		event.preventDefault();
+		setupGame();
+	});
+}
+
+startModal();
