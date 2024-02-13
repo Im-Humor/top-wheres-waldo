@@ -1,9 +1,12 @@
 import { people } from "./test_people.js";
+import { initUser } from "./backend.js";
 
 let posX = 0;
 let posY = 0;
 let time = 0;
 let winScore = 0;
+let username = "";
+let startTime = null;
 
 const sidebarList = document.querySelector(".character-list");
 for (let key in Object.keys(people)) {
@@ -144,13 +147,30 @@ function startModal() {
 	const startModal = document.createElement("div");
 	startModal.classList.add("modal");
 	startModal.innerHTML = "<p>Click start to start the game!<p>";
+
+	const startModalName = document.createElement("input");
+	startModalName.setAttribute("id", "name-field");
+	startModalName.setAttribute("placeholder", "Name");
+
 	const startModalButton = document.createElement("button");
 	startModalButton.textContent = "Start";
 
 	appContainer.appendChild(startModal);
+	startModal.appendChild(startModalName);
 	startModal.appendChild(startModalButton);
 	startModalButton.addEventListener("click", (event) => {
 		event.preventDefault();
+
+		username = startModalName.value;
+
+		let tempDate = new Date();
+		startTime = tempDate.toISOString().slice(0, 19).replace("T", " ");
+
+		initUser(username);
+
+		const headerName = document.querySelector("#header-name");
+		headerName.textContent = `Name: ${username}`;
+
 		setupGame();
 	});
 }
